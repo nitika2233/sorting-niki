@@ -1,28 +1,21 @@
 #include<stdio.h>
 int main()
 {
-int i,n,arr[100],j,max=0,num1,num2,d=0;
+int i,n,arr[100],j,d=0,temp=0;
 printf("enter the limit");
-scanf("%d",&n);
-printf("enter the elements");
-for(i=0;i<n;i++)
-{
-scanf("%d",&arr[i]);
 }
 for(i=0;i<n;i++)
 {
-for(j=i+1;j<n;j++)
-{
-if(arr[i]<arr[j])
-{
-d=arr[j]-arr[i];
+    temp=arr[i];
+    j=i-1;
+    while(j>=0 && temp<arr[j])
+    {
+        arr[j+1]=arr[j];
+        j--;
+    }
+    arr[j+1]=temp;
 }
-if(d>max)
-{
-max=d;
-
-}
-}
-}
-printf("%d  ",max);
+d=arr[n-1]-arr[0];
+printf("%d",d);
+return 0;
 }
